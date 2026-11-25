@@ -119,7 +119,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .kicker { color: var(--muted); font-size: .875rem; font-weight: 550; }
 .hero-profile {
   display: grid;
-  grid-template-columns: clamp(7rem, 14vw, 10rem) minmax(0, 1fr);
+  grid-template-columns: clamp(10rem, 30vw, 18rem) minmax(0, 1fr);
   grid-template-rows: auto auto 1fr;
   align-items: start;
   gap: .45rem clamp(.85rem, 3vw, 1.5rem);
@@ -130,10 +130,18 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   text-box-trim: trim-start;
   text-box-edge: cap alphabetic;
 }
-.profile-photo {
+.profile-photo-frame {
+  grid-column: 1;
   grid-row: 1 / span 3;
+  align-self: stretch;
+  display: grid;
+  place-items: center start;
+  /* Let the text set the row heights instead of the image. */
+  container-type: size;
+}
+.profile-photo {
   display: block;
-  width: 100%;
+  width: min(100%, 100cqh);
   height: auto;
   border-radius: .65rem;
   outline: 1px solid var(--photo-outline);
@@ -141,6 +149,12 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   box-shadow: 0 0 2.7rem var(--photo-glow);
 }
 .intro { max-width: 60ch; color: var(--muted); font-size: 1.125rem; }
+@media (width > 35rem) {
+  .hero-profile > :is(h1, .intro, .education) {
+    position: relative;
+    inset-inline-start: calc(-1 * var(--profile-photo-slack, 0px));
+  }
+}
 .skills {
   max-width: 47rem;
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
@@ -409,7 +423,8 @@ h3 { font-size: 1.25rem; letter-spacing: -.02em; }
     grid-template-columns: clamp(3.5rem, 14vw, 4.5rem) minmax(0, 1fr);
     grid-template-rows: auto;
   }
-  .profile-photo { grid-row: 1; }
+  .profile-photo-frame { grid-row: 1; align-self: center; container-type: normal; }
+  .profile-photo { width: 100%; }
   .hero-profile .intro, .hero-profile .education { grid-column: 1 / -1; }
   .skills dl { grid-template-columns: minmax(0, 1fr); }
 }

@@ -8,9 +8,9 @@
     themeColor.content = theme === 'hope' ? '#edf1f5' : '#10151f';
   }
 
-  let theme = 'despair';
+  let theme = 'hope';
   try {
-    if (localStorage.getItem(storageKey) === 'hope') theme = 'hope';
+    if (localStorage.getItem(storageKey) === 'despair') theme = 'despair';
   } catch {
     // The theme can still change for this page when storage is blocked.
   }

@@ -3,6 +3,7 @@ const workFilter = siteHeader.querySelector('.work-filter');
 const filterSelect = workFilter.querySelector('select');
 const filterCategories = new Set([...filterSelect.options].map(option => option.value));
 const filterStatus = workFilter.querySelector('[role="status"]');
+const filterIntros = document.querySelectorAll('[data-filter-intro]');
 const navLinks = [...siteHeader.querySelectorAll('nav a')];
 const workSections = [...document.querySelectorAll('[data-work-section]')].map(section => ({
   section,
@@ -52,6 +53,9 @@ function updateRoute(category, fromLocation = false) {
   const url = new URL(location.href);
   const originalHash = url.hash;
   filterSelect.value = category;
+  for (const intro of filterIntros) {
+    intro.hidden = intro.dataset.filterIntro !== category;
+  }
   const visibleTargets = applyWorkFilter(category);
   updateHeaderOffset();
 
@@ -93,3 +97,13 @@ filterSelect.addEventListener('change', () => updateRoute(filterSelect.value));
 window.addEventListener('popstate', syncRouteFromLocation);
 syncRouteFromLocation();
 new ResizeObserver(updateHeaderOffset).observe(siteHeader);
+
+const profilePhotoFrame = document.querySelector('.profile-photo-frame');
+const profilePhoto = profilePhotoFrame.querySelector('.profile-photo');
+const profilePhotoObserver = new ResizeObserver(() => {
+  // Keep the text next to the square photo without changing its wrapping width.
+  const unusedWidth = profilePhotoFrame.getBoundingClientRect().width - profilePhoto.getBoundingClientRect().width;
+  profilePhotoFrame.parentElement.style.setProperty('--profile-photo-slack', `${Math.max(0, unusedWidth)}px`);
+});
+profilePhotoObserver.observe(profilePhotoFrame);
+profilePhotoObserver.observe(profilePhoto);
