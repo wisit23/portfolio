@@ -4,8 +4,6 @@ const filterSelect = workFilter.querySelector('select');
 const filterCategories = new Set([...filterSelect.options].map(option => option.value));
 const filterStatus = workFilter.querySelector('[role="status"]');
 const navLinks = [...siteHeader.querySelectorAll('nav a')];
-const exploreLink = document.querySelector('.hero-actions .button-primary');
-const defaultExploreTarget = exploreLink.hash;
 const workSections = [...document.querySelectorAll('[data-work-section]')].map(section => ({
   section,
   target: `#${section.id}`,
@@ -36,10 +34,6 @@ function applyWorkFilter(category) {
     if (navLink) navLink.hidden = !sectionHasMatches;
     if (sectionHasMatches) visibleTargets.push(target);
   }
-
-  const exploreTarget = visibleTargets.includes(defaultExploreTarget) ? defaultExploreTarget : visibleTargets[0];
-  exploreLink.hidden = !exploreTarget;
-  if (exploreTarget) exploreLink.href = exploreTarget;
 
   filterStatus.textContent = `Showing ${visibleEntries} of ${totalEntries} entries.`;
   return visibleTargets;
