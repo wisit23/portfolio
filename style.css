@@ -119,42 +119,31 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .kicker { color: var(--muted); font-size: .875rem; font-weight: 550; }
 .hero-profile {
   display: grid;
-  grid-template-columns: clamp(10rem, 30vw, 18rem) minmax(0, 1fr);
-  grid-template-rows: auto auto 1fr;
+  grid-template-columns: clamp(7rem, 16vw, 9.5rem) minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto;
   align-items: start;
   gap: .45rem clamp(.85rem, 3vw, 1.5rem);
 }
 .hero h1 {
+  align-self: end;
   font-size: clamp(2.35rem, 7vw, 4rem);
   letter-spacing: -.05em;
   text-box-trim: trim-start;
   text-box-edge: cap alphabetic;
 }
-.profile-photo-frame {
-  grid-column: 1;
-  grid-row: 1 / span 3;
-  align-self: stretch;
-  display: grid;
-  place-items: center start;
-  /* Let the text set the row heights instead of the image. */
-  container-type: size;
-}
+.profile-photo-frame { grid-column: 1; grid-row: 1 / span 2; }
 .profile-photo {
   display: block;
-  width: min(100%, 100cqh);
+  width: 100%;
   height: auto;
   border-radius: .65rem;
   outline: 1px solid var(--photo-outline);
   outline-offset: .28rem;
   box-shadow: 0 0 2.7rem var(--photo-glow);
 }
+.hero .education { grid-column: 1 / -1; margin-top: .85rem; }
+.hero .intro { grid-column: 1 / -1; max-width: 50rem; }
 .intro { max-width: 60ch; color: var(--muted); font-size: 1.125rem; }
-@media (width > 35rem) {
-  .hero-profile > :is(h1, .intro, .education) {
-    position: relative;
-    inset-inline-start: calc(-1 * var(--profile-photo-slack, 0px));
-  }
-}
 .skills {
   max-width: 47rem;
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
@@ -168,7 +157,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .skills dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 1.4rem; }
 .skills dt { font-weight: 600; }
 .skills dd { color: var(--muted); }
-.hero-actions { margin-top: 1.35rem; }
+.hero-actions { align-self: start; gap: .5rem; margin-top: .55rem; font-size: .875rem; }
 :is(.button, .text-link):not([hidden]) {
   display: inline-block;
   max-width: 100%;
@@ -188,7 +177,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 
 .work-filter:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; color: var(--muted); font-size: .875rem; }
 .work-filter label { font-weight: 600; }
-.site-preferences :is(select, .theme-toggle) {
+.site-preferences :is(select, .pdf-button, .theme-toggle) {
   min-height: 2.75rem;
   padding: .35rem .55rem;
   border: 1px solid var(--line);
@@ -198,11 +187,11 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   font: inherit;
   cursor: pointer;
 }
-.site-preferences :is(select, .theme-toggle):focus { outline: none; }
-.site-preferences :is(select, .theme-toggle):focus-visible { outline: 2px solid transparent; border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-.site-preferences .theme-toggle:not([hidden]) { display: inline-grid; place-items: center; width: 2.75rem; padding: 0; }
-.theme-toggle:hover { color: var(--accent); }
-.theme-toggle svg { width: 1.2rem; height: 1.2rem; }
+.site-preferences :is(select, .pdf-button, .theme-toggle):focus { outline: none; }
+.site-preferences :is(select, .pdf-button, .theme-toggle):focus-visible { outline: 2px solid transparent; border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.site-preferences :is(.pdf-button, .theme-toggle):not([hidden]) { display: inline-grid; place-items: center; width: 2.75rem; padding: 0; }
+:is(.pdf-button, .theme-toggle):hover { color: var(--accent); }
+:is(.pdf-button, .theme-toggle) svg { width: 1.2rem; height: 1.2rem; }
 .theme-icon-moon, :root[data-theme="hope"] .theme-icon-sun { display: none; }
 :root[data-theme="hope"] .theme-icon-moon { display: block; }
 .work-filter-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -415,19 +404,67 @@ h3 { font-size: 1.25rem; letter-spacing: -.02em; }
   .site-header-row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5rem .75rem; }
   .site-header-controls { display: contents; }
   .site-header nav { gap: .25rem .9rem; }
-  .site-preferences { grid-column: 1 / -1; gap: .4rem .6rem; }
+  .site-preferences { grid-column: 1 / -1; gap: .4rem; }
   .work-filter:not([hidden]) { font-size: .8125rem; }
   .site-preferences select { padding-inline: .4rem; }
   .text-link:not([hidden]) { padding-inline: .65rem; }
   .hero-profile {
     grid-template-columns: clamp(3.5rem, 14vw, 4.5rem) minmax(0, 1fr);
-    grid-template-rows: auto;
   }
-  .profile-photo-frame { grid-row: 1; align-self: center; container-type: normal; }
-  .profile-photo { width: 100%; }
-  .hero-profile .intro, .hero-profile .education { grid-column: 1 / -1; }
+  .hero h1 { align-self: center; }
+  .profile-photo-frame { grid-row: 1; align-self: center; }
+  .hero-actions { grid-column: 1 / -1; order: 1; margin-top: .6rem; }
+  .hero .education { margin-top: .4rem; }
   .skills dl { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 27rem) {
   .hero h1 { font-size: clamp(1.65rem, 8vw, 2.35rem); }
+}
+
+/* A zero page margin leaves the browser no room for its date, title and URL lines. */
+@page { margin: 0; }
+@media print {
+  /* Cloned padding gives every printed page its own margin instead. */
+  main { display: block; padding: 12mm; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  /* Keeps timeline dots and accent bars, which are drawn as backgrounds. */
+  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; background: #fff; font-size: .875rem; }
+  .site-header, .skip-link { display: none !important; }
+  .shell { width: 100%; }
+  .hero { padding-block: 0 1.5rem; background: none; }
+  .work-content { background: none; }
+  :is(.reloop-study, .floodtir-study, .restoration-study, .activity-cards > li) { box-shadow: none; }
+  :is(.reloop-study, .floodtir-study, .restoration-study) { overflow: visible; }
+
+
+  /* Page breaks: keep small blocks whole and let long cards split between them. */
+  h2, h3, h4, h5, h6, summary, .timeline-label { break-after: avoid; }
+  .work-content > .section:not(#internship) { break-before: page; padding-block-start: 0; border-top: 0; }
+  /* The first visible project stays under the Projects title. */
+  .project:not([hidden]) ~ .project:not([hidden]) { break-before: page; margin-top: 0; }
+  /* RE-LOOP is the longest project, so it is also scaled down to fit one page. */
+  .reloop-study { zoom: .92; line-height: 1.45; }
+  :is(.reloop-overview, .reloop-body) { padding-block: .75rem; }
+  .reloop-section + .reloop-section { margin-top: .6rem; padding-top: .55rem; }
+  .reloop-section h4 { margin-block-end: .4rem; }
+  .reloop-services { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem 1rem; margin-top: .5rem; }
+  .reloop-services div { padding-top: .3rem; }
+  .reloop-delivery li + li { margin-top: .25rem; }
+  .reloop-links { margin-top: .6rem; padding-top: .5rem; }
+
+  /* Fit Floodtir and Image Restoration Demo on one page each, on both A4 and Letter. */
+  :is(.floodtir-overview, .floodtir-body, .restoration-overview, .restoration-body) { padding-block: .75rem; }
+  :is(.floodtir-section + .floodtir-section, .restoration-section + .restoration-section) { margin-top: .6rem; padding-top: .55rem; }
+  .floodtir-study .competition-figure { flex-basis: 12rem; max-width: 15rem; }
+  .restoration-results { margin-block: .5rem .4rem; line-height: 1.4; }
+  .restoration-results th, .restoration-results td { padding-block: .2rem; }
+  .restoration-body > .text-link { margin-top: .5rem; }
+  /* The accent bar above a section title must not be left on the previous page. */
+  h2 { break-inside: avoid; }
+  :is(.pitch-deck-list, .technical-report-list) ul { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: start; }
+  :is(.reloop-overview, .floodtir-overview, .restoration-overview) { break-inside: avoid; break-after: avoid; }
+  :is(.reloop-section, .floodtir-section, .restoration-section, .competition-figure, .restoration-results) { break-inside: avoid; }
+  .activity-cards > li:not(.hackathon-group), .hackathon-group .timeline > li, #internship .timeline > li { break-inside: avoid; }
+  .restoration-note, .competition-gallery, .floodtir-links, .pitch-deck-list { break-before: avoid; }
+  .hackathon-group > :is(h4, h4 + p) { break-after: avoid; }
+  :is(.reloop-study, .floodtir-study, .restoration-study, .activity-cards > li) { box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 }

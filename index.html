@@ -11,6 +11,7 @@
   <script src="theme.js"></script>
   <link rel="stylesheet" href="style.css">
   <script src="filters.js" defer></script>
+  <script src="print.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" target="_self">Skip to content</a>
@@ -34,6 +35,11 @@
             </select>
             <p class="work-filter-status" role="status"></p>
           </div>
+          <button class="pdf-button" id="download-pdf" type="button" aria-label="Download PDF" title="Download PDF" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12m-5-5 5 5 5-5M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>
+            </svg>
+          </button>
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to Despair theme" title="Switch to Despair theme" hidden>
             <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4"/>
@@ -56,22 +62,22 @@
             <img class="profile-photo" src="assets/profile/wisit-jiamsan.jpg" width="400" height="400" alt="">
           </div>
           <h1 id="name">Wisit Jiamsan</h1>
-          <p class="intro" data-filter-intro="all">Computer Science Student @ KMITL | Interested in AI, <span class="keep-together">Full-Stack</span> Development, Software Engineering <span class="keep-together">&amp; Cybersecurity</span></p>
-          <p class="intro" data-filter-intro="software" hidden>Computer science student at KMITL with experience in full-stack development and cloud deployment. Designed a five-service backend and built GitHub Actions workflows for RE-LOOP, a secondhand fashion marketplace.</p>
-          <p class="intro" data-filter-intro="data-ai" hidden>Computer science student at KMITL with AI engineering internship experience. Built a U-Net system that measured inhibition-zone diameters with a mean absolute error of 1.5 mm.</p>
-          <p class="intro" data-filter-intro="cybersecurity" hidden>Computer science student at KMITL interested in cybersecurity. My team placed fourth and earned a Medallion for Excellence in the WorldSkills Thailand regional cybersecurity competition.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:wisit.jiamsan@gmail.com" target="_self">wisit.jiamsan@gmail.com</a>
+            <a class="button button-secondary" href="https://github.com/wisit23">GitHub <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="https://www.linkedin.com/in/wisit-jiamsan-739437370/">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="tel:+66843656337" target="_self">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-1.5 2a13 13 0 0 1-7.5-7.5L9 8 7 3Z"/>
+              </svg>
+              0843656337
+            </a>
+          </div>
           <p class="kicker education">B.Sc. in Computer Science · King Mongkut’s Institute of Technology Ladkrabang · 2024 – Present</p>
-        </div>
-        <div class="hero-actions">
-          <a class="button button-primary" href="mailto:wisit.jiamsan@gmail.com" target="_self">wisit.jiamsan@gmail.com</a>
-          <a class="button button-secondary" href="https://github.com/wisit23">GitHub <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="https://www.linkedin.com/in/wisit-jiamsan-739437370/">LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="tel:+66843656337" target="_self">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-1.5 2a13 13 0 0 1-7.5-7.5L9 8 7 3Z"/>
-            </svg>
-            0843656337
-          </a>
+          <p class="intro" data-filter-intro="all">Computer Science Student @ KMITL | Interested in AI, <span class="keep-together">Full-Stack</span> Development, Software Engineering <span class="keep-together">&amp; Cybersecurity</span></p>
+          <p class="intro" data-filter-intro="software" hidden>I’m a Computer Science student at KMITL, and I’m currently interested in software engineering, especially building web applications from the backend to the frontend. I’m continuously learning and developing my skills in areas like backend development, databases, and cloud deployment.</p>
+          <p class="intro" data-filter-intro="data-ai" hidden>I’m a Computer Science student at KMITL, and I’m currently interested in data and AI, especially how machine learning can be used to solve real-world problems. I’m continuously learning and developing my skills in areas like data analysis, machine learning, and deep learning.</p>
+          <p class="intro" data-filter-intro="cybersecurity" hidden>I’m a Computer Science student at KMITL, and I’m currently interested in cybersecurity, especially how systems can be attacked and how to protect them. I’m continuously learning and developing my skills in areas like web security, network security, and secure coding.</p>
         </div>
         <div class="skills">
           <h2>Skills</h2>

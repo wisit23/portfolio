@@ -97,13 +97,3 @@ filterSelect.addEventListener('change', () => updateRoute(filterSelect.value));
 window.addEventListener('popstate', syncRouteFromLocation);
 syncRouteFromLocation();
 new ResizeObserver(updateHeaderOffset).observe(siteHeader);
-
-const profilePhotoFrame = document.querySelector('.profile-photo-frame');
-const profilePhoto = profilePhotoFrame.querySelector('.profile-photo');
-const profilePhotoObserver = new ResizeObserver(() => {
-  // Keep the text next to the square photo without changing its wrapping width.
-  const unusedWidth = profilePhotoFrame.getBoundingClientRect().width - profilePhoto.getBoundingClientRect().width;
-  profilePhotoFrame.parentElement.style.setProperty('--profile-photo-slack', `${Math.max(0, unusedWidth)}px`);
-});
-profilePhotoObserver.observe(profilePhotoFrame);
-profilePhotoObserver.observe(profilePhoto);
