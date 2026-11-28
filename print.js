@@ -7,11 +7,15 @@ window.addEventListener('beforeprint', () => {
   const root = document.documentElement;
   const theme = root.dataset.theme;
   const closedLists = [...document.querySelectorAll('details:not([open])')];
+  const title = document.title;
 
   root.dataset.theme = 'hope';
   for (const list of closedLists) list.open = true;
+  // The browser suggests the page title as the saved PDF's file name.
+  document.title = 'Portfolio_Wisit_Jiamsan';
 
   restoreAfterPrint = () => {
+    document.title = title;
     root.dataset.theme = theme;
     for (const list of closedLists) list.open = false;
   };

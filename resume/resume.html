@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wisit Jiamsan - Resume</title>
+<style>
+  @page { size: A4; margin: 10mm 12mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Calibri, Arial, sans-serif; font-size: 9.6pt; line-height: 1.28; color: #111; margin: 0; }
+  h1 { font-size: 19pt; margin: 0; text-align: center; }
+  .contact { text-align: center; margin: 2px 0 6px; }
+  h2 { font-size: 10.5pt; letter-spacing: .5px; border-bottom: 1px solid #111; margin: 7px 0 3px; padding-bottom: 1px; }
+  .row { display: flex; justify-content: space-between; gap: 8px; }
+  .row b { font-weight: 700; }
+  .sub { font-style: italic; }
+  ul { margin: 1px 0 3px; padding-left: 15px; }
+  li { margin: 0; }
+  p { margin: 1px 0 3px; }
+  a { color: #111; }
+  .skills div { margin: 0; }
+</style>
+</head>
+<body>
+
+<h1>Wisit Jiamsan</h1>
+<div class="contact">wisit.jiamsan@gmail.com | 084-3656337 | <a href="#">LinkedIn</a> | <a href="#">Github</a> | <a href="https://wisit-jiamsan.vercel.app/?filter=all">Portfolio</a></div>
+
+<h2>SUMMARY</h2>
+<p>Computer Science student at KMITL focused on data and software. I build data pipelines and machine learning models, and I build full-stack web applications with Docker and CI/CD deployment. My work includes a flood-monitoring data platform, a microservices marketplace, and a U-Net measurement system from an AI internship.</p>
+
+<h2>EDUCATION</h2>
+<div class="row"><span><b>King Mongkut's Institute of Technology Ladkrabang</b> - B.Sc. in Computer Science | GPAX 3.04/4.00 | <a href="#">Transcript</a></span><span>2024 - Present</span></div>
+
+<h2>EXPERIENCE</h2>
+<div class="row"><span><b>AI Engineer Intern</b> - KMITL Digital Analytics and Intelligence Center</span><span>Aug 2025 - Nov 2025</span></div>
+<ul>
+  <li>Built a U-Net system that automates inhibition-zone measurement. It reached a mean absolute error of 1.5 mm for diameter estimates.</li>
+  <li>Built an image preprocessing pipeline that outperformed adaptive thresholding under inconsistent lighting.</li>
+</ul>
+
+<h2>PROJECTS</h2>
+<div class="row"><span><b>Floodtir</b> - flood response coordination for Bangkok (BDI Hackathon 2026, Top 30 Teams) | <a href="#">Repository</a> | <a href="#">Pitch Deck</a></span></div>
+<ul>
+  <li>Built the data pipeline that pulls drainage and water-level data from external APIs, processes it, stores it in PostgreSQL with PostGIS, and exposes it through a FastAPI service.</li>
+  <li>The data feeds an interactive map of canals, pumps, and monitoring stations in the Lat Krabang demo area. The prototype links resident reports, approved work orders, and response evidence.</li>
+</ul>
+
+<div class="row"><span><b>Reloop</b> - secondhand fashion marketplace | <a href="#">Repository</a></span></div>
+<ul>
+  <li>Designed the architecture: a Next.js frontend, an Express API gateway, and five backend services. Each service owns its data (PostgreSQL, MongoDB, Redis). Built buyer-side features.</li>
+  <li>Built GitHub Actions workflows that verify code, publish seven Docker images to GitHub Container Registry, and deploy releases pinned by image digest.</li>
+  <li>Deployed in two ways: a single-node K3s cluster on a university cloud VM, and AWS (ECR, EKS Auto Mode, Amplify, CloudFront and ALB) with HTTPS smoke tests. Implemented blue-green deployment tooling that checks the standby version before switching traffic.</li>
+</ul>
+
+<div class="row"><span><b>Image Restoration Demo</b> - denoising and deblurring | <a href="#">Repository</a></span></div>
+<ul>
+  <li>Built paired clean and degraded image datasets from DIV2K by adding Gaussian noise and blur. Compared six models; MIRNet-v2 scored 33.11 dB PSNR and 0.8988 SSIM, and Residual U-Net scored 33.01 dB and 0.8978. Saved notebook results, not a controlled ranking.</li>
+  <li>Built a Flask demo that shows original, degraded, and restored images with PSNR and SSIM.</li>
+</ul>
+
+<div class="row"><span><b>Dona - Agri-Platform</b> - Startup Thailand League 2025, university representative</span></div>
+<ul>
+  <li>Trained a deep-learning image classifier for 9 rice diseases (70% F1-score).</li>
+  <li>Built a full-stack agricultural marketplace with a PostgreSQL schema for service bookings.</li>
+</ul>
+
+<h2>ACHIEVEMENTS</h2>
+<ul>
+  <li><b>ASEAN Data Science Explorers 2026</b> - National Finalist, one of 10 teams in Thailand. Analyzed the income gap of Thai rice farmers and proposed Easy Farm, which combines AI, satellite imagery, and farm data. <a href="#">Pitch Deck</a></li>
+  <li><b>WorldSkills Thailand Regional 2026, Cyber Security</b> - 4th place in the Southern Region; Medallion for Excellence (on-site team, no AI tools).</li>
+  <li><b>Super AI Engineer Season 5 (Level 2)</b> - AI Developer Award. Hackathon results:
+    <ul>
+      <li>Sales &amp; Demand Forecasting (CP Axtra): <b>Winner</b>. Two retail tasks: (1) forecast item sales with a LightGBM and XGBoost ensemble, using weekday sales statistics and external data such as rainfall and population density (WAPE 0.415); (2) recommend which items each store should add, drop, or keep, with labels built from weekly sales history because no ground truth was given. Ranked 1st on the assortment task's private leaderboard with an F1 of 0.71878 (mean of the Add and Delete F1). <a href="#">Pitch Deck</a></li>
+      <li>Cognitive Profiling Prediction (Image Matters Asia): <b>1st Runner-Up</b>. Detected 12 body movements in interview videos using MediaPipe pose keypoints and a TCN; sample-average F1 0.503. <a href="#">Pitch Deck</a></li>
+      <li>Financial Analysis Agent (SCBx): <b>Special Award</b>. Built a multi-agent question-answering system on Qwen3-8B that cleans the question, routes it by domain, and combines answers by majority vote; 0.768 Kaggle public score.</li>
+      <li>Liver Fibrosis Severity Prediction (CUMED): <b>Honorable Mention (4th of 67)</b>. Predicted fibrosis stage from ordinary ultrasound images, cropping the key area and balancing rare classes; weighted MAE 2.15411. <a href="#">Pitch Deck</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2>SKILLS</h2>
+<div class="skills">
+  <div><b>Languages &amp; Databases:</b> SQL, Python, Java, JavaScript, TypeScript | PostgreSQL, MySQL, SQLite, MongoDB</div>
+  <div><b>Data &amp; ML:</b> Pandas, NumPy, Scikit-learn, PyTorch</div>
+  <div><b>Backend &amp; Cloud:</b> FastAPI, Docker, Git, GitHub Actions, Kubernetes (K3s, EKS), AWS, GCP</div>
+</div>
+
+</body>
+</html>
