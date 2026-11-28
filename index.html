@@ -321,7 +321,7 @@
               <li><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/hii.pdf">HII — <span class="keep-together">Pitch Deck (PDF)</span></a></li>
               <li><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/image-matters-asia.pdf">Image Matters Asia — <span class="keep-together">Pitch Deck (PDF)</span></a></li>
               <li><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/nectec.pdf">NECTEC — <span class="keep-together">Pitch Deck (PDF)</span></a></li>
-              <li><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/scbx.pdf">SCBx — <span class="keep-together">Pitch Deck (PDF)</span></a></li>
+              <li><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/scbx-financial-analysis-agent.pdf">SCBx — <span class="keep-together">Pitch Deck (PDF)</span></a></li>
             </ul>
           </details>
           <details class="technical-report-list">
@@ -336,9 +336,9 @@
         <li data-categories="data-ai">
           <p class="timeline-label"><time datetime="2025-06-27">27 June 2025</time></p>
           <h6>Financial Analysis Agent Hackathon</h6>
-          <p><strong>Special Award</strong> · SCBx · 62.03% accuracy · 0.768 Kaggle public score</p>
-          <p>Built a four-stage multi-agent system using Typhoon 2.1 and Qwen3-8B, with automated logic checks and majority voting among specialized agents.</p>
-          <p><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/scbx.pdf">SCBx Pitch Deck (PDF) <span aria-hidden="true">↗</span></a></p>
+          <p><strong>Special Award</strong> · SCBx · 0.788 Kaggle public score</p>
+          <p>Built a multi-agent question-answering system on Qwen3-8B that routes financial questions by domain: stock-movement questions go to a stock expert agent, and others are answered by majority vote across nine expert agents.</p>
+          <p><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/scbx-financial-analysis-agent.pdf">SCBx Pitch Deck (PDF) <span aria-hidden="true">↗</span></a></p>
           <div class="competition-gallery">
             <figure class="competition-figure">
               <a href="assets/super-ai/financial-analysis-agent-special-award.png">
@@ -351,7 +351,7 @@
           <p class="timeline-label"><time datetime="2025-06-20">20 June 2025</time></p>
           <h6>Cognitive Profiling Prediction</h6>
           <p><strong>1st Runner-Up</strong> · Image Matters Asia · Team KidDee · Sample-average F1: 0.50347</p>
-          <p>Built a multimodal action recognition system that combined a temporal convolutional network (TCN) with CLIP and pose features.</p>
+          <p>Detected 12 body movements in interview videos using MediaPipe pose keypoints and a TCN.</p>
           <p><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/image-matters-asia.pdf">Pitch Deck (PDF) <span aria-hidden="true">↗</span></a></p>
           <div class="competition-gallery">
             <figure class="competition-figure">
@@ -365,7 +365,7 @@
           <p class="timeline-label"><time datetime="2025-06-06">6 June 2025</time></p>
           <h6>Liver Fibrosis Severity Prediction</h6>
           <p><strong>Honorable Mention (4th Place)</strong> · CUMED · Team KidDee-4 · Weighted MAE: 2.15411</p>
-          <p>Refined data preprocessing and trained the model for more epochs. The evaluation metric weighted errors inversely by class frequency.</p>
+          <p>Predicted fibrosis stage from ordinary ultrasound images; cropped the key area and balanced rare classes. The evaluation metric weighted errors inversely by class frequency.</p>
           <p><a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/cumed.pdf">Pitch Deck (PDF) <span aria-hidden="true">↗</span></a></p>
           <div class="competition-gallery">
             <figure class="competition-figure">
@@ -378,8 +378,8 @@
         <li data-categories="data-ai">
           <p class="timeline-label"><time datetime="2025-05-10">10 May 2025</time></p>
           <h6>Sales &amp; Demand Forecasting Challenge</h6>
-          <p><strong>Winner</strong> · CP Axtra · F1 score: 0.71878</p>
-          <p>Selected time-series training data to reduce the impact of outliers on the forecasts.</p>
+          <p><strong>Winner</strong> · CP Axtra · Recommendation F1 score: 0.71878</p>
+          <p>Worked on two retail tasks: forecasting item sales with a LightGBM and XGBoost ensemble (WAPE 0.415), and recommending which items each store should add, drop, or keep (1st on the private leaderboard, F1 0.71878). For the forecasts, selected time-series training data to reduce the impact of outliers.</p>
           <p class="document-actions">
             <a class="text-link pitch-deck-link" href="assets/super-ai/pitch-decks/cp-axtra.pdf">Pitch Deck (PDF) <span aria-hidden="true">↗</span></a>
             <a class="text-link technical-report-link" href="assets/super-ai/technical-reports/week-1-cp-axtra-demand-prediction.pdf">Technical Report (PDF) <span aria-hidden="true">↗</span></a>
